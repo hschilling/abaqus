@@ -1,0 +1,35 @@
+@echo off
+
+
+echo.
+echo Intel(R) Visual Fortran Compiler for applications running on Intel(R) 64, Version 10.1.032
+echo Copyright (C) 1985-2009 Intel Corporation. All rights reserved.
+echo.
+
+SET VSINSTALLDIR=C:\Program Files (x86)\Microsoft Visual Studio 8
+SET VCINSTALLDIR=%VSINSTALLDIR%\VC
+SET PATH=%VSINSTALLDIR%\Common7\IDE;%VCINSTALLDIR%\BIN\x86_amd64;%VSINSTALLDIR%\Common7\Tools;%VSINSTALLDIR%\Common7\Tools\bin;%VCINSTALLDIR%\PlatformSDK\bin;%PATH%
+SET LIB=%VCINSTALLDIR%\lib\amd64;%VCINSTALLDIR%\PlatformSDK\lib\amd64;%LIB%
+SET INCLUDE=%VCINSTALLDIR%\atlmfc\include;%VCINSTALLDIR%\include;%VCINSTALLDIR%\PlatformSDK\include;%INCLUDE%
+
+
+Title Intel(R) Visual Fortran Compiler for applications running on Intel(R) 64, Version 10.1.032 build environment
+
+SET IFORT_COMPILER10=C:\Program Files (x86)\Intel\Compiler\Fortran\10.1.032
+
+SET INTEL_LICENSE_FILE=C:\Program Files (x86)\Common Files\Intel\Licenses
+
+Set Path=%IFORT_COMPILER10%\EM64T\Bin;%path%
+
+Set Lib=%IFORT_COMPILER10%\EM64T\Lib;%LIB%
+
+SET Include=%IFORT_COMPILER10%\EM64T\Include;%Include%
+
+if exist "%FNL_DIR%\Intel64\bin\fnlsetup.bat" call "%FNL_DIR%\Intel64\bin\fnlsetup.bat"
+
+cd ..\..\..\..\Users\tbrosse\.openmdao\gui\projects\Stent
+
+abaqus cae noGUI=ark_stent.py
+REM abaqus cae script=ark_stent.py
+
+pause
