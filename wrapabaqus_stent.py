@@ -33,7 +33,7 @@ class WrapAbaqus_stent(ExternalCode):
         
         self.input_file = 'ark_stent.py'
         self.output_file = 'output.txt'
-        self.command= ['C:/Users/tbrosse/.openmdao/gui/projects/Stent/launcher.bat'] 
+        self.command= ['cmd.exe','/c','C:/Users/tbrosse/.openmdao/gui/projects/Stent/launcher.bat'] 
             
         self.external_files = [FileMetadata(path=self.input_file, input=True), FileMetadata(path=self.output_file), ]
 
